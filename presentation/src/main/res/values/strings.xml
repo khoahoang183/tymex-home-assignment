@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Freightmatic</string>
+    <string name="common_sample_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s</string>
+    <string name="common_sample_text_short">Lorem Ipsum is simply dummy text</string>
+    <string name="common_dialog_loading">Loading…</string>
+    <string name="common_dialog_Success">Success…</string>
+    <string name="common_session_expired">Session Expired</string>
+    <string name="common_session_expired_content">Please re-login</string>
+
+    <string name="register">Register</string>
+    <string name="next">Next</string>
+    <string name="empty"/>
+    <string name="confirm">Confirm</string>
+    <string name="ok">OK</string>
+    <string name="back">Back</string>
+    <string name="search">Search</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="cancel">Cancel</string>
+    <string name="logout">Logout</string>
+    <string name="home">Home</string>
+    <string name="no_data_found">No data found</string>
+    <string name="go_to_setting">"Go to setting"</string>
+    <string name="please_allow_gallery">Please allow gallery access to select image</string>
+    <string name="profile">Profile</string>
+    <string name="detail_github_user">Detail Github User</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="blog">Blog</string>
+    <string name="zero_plus">0+</string>
+
+</resources>

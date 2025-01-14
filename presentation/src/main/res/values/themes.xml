@@ -1,0 +1,61 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.BasesourceKotlin" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_on_primary</item>
+        <item name="colorAccent">@color/color_on_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_variant</item>
+        <item name="colorOnPrimary">@color/color_on_primary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/color_on_primary</item>
+        <item name="colorSecondaryVariant">@color/color_on_primary</item>
+        <item name="colorOnSecondary">@color/color_on_primary</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/color_on_primary</item>
+        <item name="android:navigationBarColor">@color/color_on_primary</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Customize your theme here. -->
+        <item name="android:textViewStyle">@style/BaseTextView</item>
+        <item name="android:buttonStyle">@style/BaseButton</item>
+        <item name="android:editTextStyle">@style/BaseEditText</item>
+
+        <!-- splash screen system for android 12 -->
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/color_white</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@color/color_white</item>
+
+        <item name="android:fontFamily">@font/font_family_app</item>
+        <item name="fontFamily">@font/font_family_app</item>
+    </style>
+
+    <style name="customDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="windowMinWidthMajor">0dp</item>
+        <item name="windowMinWidthMinor">0dp</item>
+    </style>
+
+    <style name="loadingDialogTheme" parent="customDialogTheme">
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <style name="Theme.App" parent="Base.Theme.BasesourceKotlin">
+
+    </style>
+
+    <style name="Theme.App.PostSplashScreen">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowBackground">@color/color_white</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+
+        <item name="android:statusBarColor">@color/color_transparent</item>
+        <item name="android:navigationBarColor">@color/color_transparent</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+    </style>
+
+</resources>

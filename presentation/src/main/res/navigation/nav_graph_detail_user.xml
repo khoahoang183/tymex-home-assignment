@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_detail_user"
+    app:startDestination="@id/DetailGithubUserFragment">
+
+    <fragment
+        android:id="@+id/DetailGithubUserFragment"
+        android:name="com.khoahoang183.basesource.features.detail.DetailGithubUserFragment"
+        tools:layout="@layout/fragment_splash">
+
+        <argument
+            android:name="userModel"
+            app:nullable="true"
+            app:argType="com.khoahoang183.model.features.GithubUserModel"/>
+
+    </fragment>
+</navigation>

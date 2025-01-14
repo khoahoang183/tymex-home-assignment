@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_black">#FF000000</color>
+    <color name="color_black30">#30000000</color>
+    <color name="color_white">#FFFFFFFF</color>
+    <color name="color_transparent">#00000000</color>
+
+    <color name="color_account_basic">#36D66F</color>
+    <color name="color_account_standard">#FFD800</color>
+    <color name="color_account_premium">#FF4040</color>
+
+    <color name="color_primary">@color/color_black</color>
+    <color name="color_primary_variant">@color/color_white</color>
+    <color name="color_on_primary">@color/color_white</color>
+    <color name="color_secondary">@color/color_black</color>
+    <color name="color_secondary_variant">@color/color_black</color>
+    <color name="color_on_secondary">@color/color_black</color>
+    <color name="color_background">@color/color_white</color>
+    <color name="color_status_bar">@color/color_white</color>
+    <color name="color_navigation_bar">@color/color_black</color>
+    <color name="color_item_menu_non_checked">#AEAEAE</color>
+
+    <color name="color_common_red">#A92A43</color>
+    <color name="color_common_main">#A92A43</color>
+    <color name="color_common_active">#000000</color>
+    <color name="color_common_inactive">#A3A5AE</color>
+    <color name="color_common_divider">#E1E2E5</color>
+    <color name="color_common_stroke">#9D9B9B</color>
+
+    <color name="color_main">#5E7D83</color>
+    <color name="color_main_2">#88b6bf</color>
+</resources>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/includeTopBar"
+        layout="@layout/include_top_bar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/long_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/includeTopBar">
+
+        <include
+            android:id="@+id/includeUser"
+            layout="@layout/item_github_user" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llFollowers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/long_8dp"
+        android:gravity="center"
+        android:minWidth="@dimen/long_100dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@id/llFollowing"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llUser">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="@dimen/long_50dp"
+            android:layout_height="@dimen/long_50dp"
+            android:src="@drawable/layer_list_follower"
+            app:shapeAppearance="@style/Image.Circle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFollowersValue"
+            style="@style/BaseTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/long_8dp"
+            android:background="@color/color_transparent"
+            android:textColor="@color/color_main"
+            android:textSize="@dimen/text_size_18sp"
+            android:textStyle="bold"
+            android:text="@string/zero_plus" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFollowers"
+            style="@style/BaseTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_transparent"
+            android:text="@string/followers"
+            android:textColor="@color/color_main" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llFollowing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/long_16dp"
+        android:layout_marginTop="@dimen/long_8dp"
+        android:gravity="center"
+        android:minWidth="@dimen/long_100dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/llFollowers"
+        app:layout_constraintTop_toBottomOf="@+id/llUser">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="@dimen/long_50dp"
+            android:layout_height="@dimen/long_50dp"
+            android:src="@drawable/layer_list_following"
+            app:shapeAppearance="@style/Image.Circle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFollowingValue"
+            style="@style/BaseTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/long_8dp"
+            android:background="@color/color_transparent"
+            android:textColor="@color/color_main"
+            android:textSize="@dimen/text_size_18sp"
+            android:textStyle="bold"
+            android:text="@string/zero_plus" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFollowing"
+            style="@style/BaseTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_transparent"
+            android:text="@string/following"
+            android:textColor="@color/color_main" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBlog"
+        style="@style/BaseTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/long_16dp"
+        android:background="@color/color_transparent"
+        android:text="@string/blog"
+        android:textColor="@color/color_main"
+        android:textSize="@dimen/text_size_18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llFollowers" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBlogValue"
+        style="@style/BaseTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/long_8dp"
+        android:background="@color/color_transparent"
+        android:textColor="@color/color_main"
+        app:layout_constraintStart_toStartOf="@+id/tvBlog"
+        app:layout_constraintTop_toBottomOf="@+id/tvBlog"
+        tool:text="@string/followers" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

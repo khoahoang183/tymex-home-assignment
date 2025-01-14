@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/homeUserTab1Fragment"
+    android:id="@+id/nav_graph_home_user_nested">
+
+    <fragment
+        android:id="@+id/homeUserTab1Fragment"
+        android:name="com.khoahoang183.basesource.features.home.tab1.HomeTab1Fragment"
+        tools:layout="@layout/fragment_home_tab1" />
+
+    <fragment
+        android:id="@+id/homeUserTab2Fragment"
+        android:name="com.khoahoang183.basesource.features.home.tab2.HomeTab2Fragment"
+        tools:layout="@layout/fragment_home_tab2" />
+
+</navigation>

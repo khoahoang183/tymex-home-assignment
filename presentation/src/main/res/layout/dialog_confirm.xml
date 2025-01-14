@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_bg_confirm"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/long_32dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/long_16dp"
+        android:layout_marginBottom="@dimen/long_8dp"
+        android:gravity="center"
+        android:maxLines="10"
+        android:visibility="visible"
+        tools:text="@string/common_sample_text" />
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/long_16dp"
+        android:gravity="center"
+        android:maxLines="20"
+        android:inputType="textMultiLine"
+        tools:ignore="TextViewEdits" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_height_divider"
+        android:layout_marginTop="@dimen/long_36dp"
+        android:background="@color/color_common_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/leftButtonTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_transparent"
+            android:gravity="center"
+            android:paddingVertical="@dimen/long_14dp"
+            android:textAllCaps="false"
+            android:textColor="@color/color_main"
+            tools:text="Left" />
+
+        <View
+            android:id="@+id/buttonDividerVw"
+            android:layout_width="@dimen/view_height_divider"
+            android:layout_height="match_parent"
+            android:background="@color/color_common_divider" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rightButtonTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/color_transparent"
+            android:gravity="center"
+            android:paddingVertical="@dimen/long_14dp"
+            android:textAllCaps="false"
+            android:textColor="@color/color_main"
+            tools:text="Right" />
+    </LinearLayout>
+
+</LinearLayout>

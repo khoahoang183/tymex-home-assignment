@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/long_60dp"
+    android:background="@color/color_main"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgLeft"
+        android:padding="@dimen/long_18dp"
+        android:layout_width="@dimen/long_60dp"
+        android:layout_height="@dimen/long_60dp"
+        android:rotation="180"
+        android:src="@drawable/ic_arrow_gray"
+        app:tint="@color/white" />
+
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/long_8dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_16sp"
+        android:visibility="invisible"
+        tools:text="@string/common_sample_text"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgRight"
+        android:padding="@dimen/long_18dp"
+        android:layout_width="@dimen/long_60dp"
+        android:layout_height="@dimen/long_60dp"
+        android:src="@drawable/ic_arrow_gray"
+        android:visibility="invisible" />
+
+
+</LinearLayout>

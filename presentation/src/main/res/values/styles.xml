@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base Region -->
+    <style name="BaseTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14dp</item>
+        <item name="android:fontFamily">@font/mulish_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/color_main</item>
+        <item name="android:singleLine">true</item>
+        <item name="fontWeight">400</item>
+    </style>
+
+    <style name="BaseEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">14dp</item>
+        <item name="android:fontFamily">@font/mulish_regular</item>
+        <item name="android:padding">@dimen/long_16dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:background">@drawable/shape_r16_white</item>
+        <item name="android:textColor">@color/color_main</item>
+        <item name="android:textColorHint">@color/color_main</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textCursorDrawable">@drawable/shape_cursor_edittext</item>
+    </style>
+
+    <style name="BaseSeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:thumbOffset">0dp</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="BaseButton" parent="Widget.AppCompat.Button">
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontWeight">500</item>
+    </style>
+
+    <style name="BaseRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/color_main</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+    </style>
+
+    <style name="CustomDatePicker">
+        <!-- Text color -->
+        <item name="android:textColorPrimary">@color/color_white</item>
+        <!-- Divider color -->
+        <item name="colorControlNormal">@color/color_transparent</item>
+    </style>
+
+    <style name="BaseBottomSheet" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="bottomSheetStyle">@style/bottomSheetBackground</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:forceDarkAllowed">true</item>
+        <item name="android:navigationBarColor">@color/color_main</item>
+    </style>
+
+    <style name="bottomSheetBackground" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:colorBackground">@android:color/transparent</item>
+    </style>
+
+
+    <!-- Customize Region -->
+
+    <style name="Text.BottomNavigation.Inactive" parent="BaseTextView">
+        <!--<item name="android:textColor">@color/neutral_300</item>-->
+        <item name="android:textSize">@dimen/text_size_12sp</item>
+        <!--<item name="android:font">@font/pretendard_regular_400</item>-->
+    </style>
+
+    <style name="Text.BottomNavigation.Active" parent="BaseTextView">
+        <!--<item name="android:textColor">@color/neutral_0</item>-->
+        <item name="android:textSize">@dimen/text_size_12sp</item>
+        <item name="android:gravity">center</item>
+        <!-- <item name="android:font">@font/pretendard_semibold_600</item>-->
+    </style>
+
+    <style name="EditText.InputField" parent="BaseEditText">
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:background">@drawable/shape_r16_white</item>
+        <item name="android:minHeight">@dimen/long_40dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingHorizontal">@dimen/long_12dp</item>
+        <item name="android:paddingVertical">@dimen/long_8dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="EditText.InputField.Paragraph" parent="EditText.InputField">
+        <item name="android:maxLines">100</item>
+        <item name="android:padding">@dimen/long_10dp</item>
+        <item name="android:gravity">start</item>
+        <item name="android:singleLine">false</item>
+    </style>
+
+    <style name="Button.Action" parent="BaseButton">
+        <item name="android:layout_height">@dimen/long_48dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="lineHeight">20dp</item>
+    </style>
+
+    <style name="Button.Action.Corner" parent="Button.Action">
+        <item name="android:minHeight">@dimen/long_54dp</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="android:minWidth">@dimen/long_140dp</item>
+        <item name="android:background">@drawable/shape_r16_white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">@dimen/long_14dp</item>
+        <item name="android:paddingBottom">@dimen/long_14dp</item>
+        <item name="android:paddingStart">@dimen/long_16dp</item>
+        <item name="android:paddingEnd">@dimen/long_16dp</item>
+    </style>
+
+    <style name="RadioButton.Option" parent="BaseRadioButton">
+        <item name="android:minHeight">@dimen/long_54dp</item>
+        <item name="android:buttonTint">@color/color_main</item>
+    </style>
+
+
+    <style name="Image.Common" parent="">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:contentDescription">empty</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="Image.Corner" parent="Image.Common">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/long_6dp</item>
+    </style>
+
+    <style name="Image.Circle" parent="Image.Common">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/color_main</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="CheckBox.White" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/white</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="TabLayout.Text" parent="Widget.Design.TabLayout">
+        <item name="tabRippleColor">@color/color_transparent</item>
+        <item name="itemRippleColor">@color/color_transparent</item>
+        <item name="tabIndicatorColor">@color/color_main</item>
+        <item name="tabIndicatorHeight">@dimen/long_3dp</item>
+        <item name="tabTextAppearance">@style/TabLayout.Text.TextTabLayoutAppearance</item>
+    </style>
+
+    <style name="TabLayout.Text.TextTabLayoutAppearance">
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textColor">@drawable/selector_state_color_tab_text</item>
+    </style>
+</resources>
