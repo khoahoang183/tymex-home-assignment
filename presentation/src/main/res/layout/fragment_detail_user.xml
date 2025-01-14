@@ -4,7 +4,7 @@
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/color_main_3">
 
     <include
         android:id="@+id/includeTopBar"
@@ -15,12 +15,14 @@
         android:id="@+id/llUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/long_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/includeTopBar">
 
         <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/long_16dp"
             android:id="@+id/includeUser"
             layout="@layout/item_github_user" />
     </LinearLayout>

@@ -4,15 +4,15 @@ import android.annotation.SuppressLint
 import com.khoahoang183.basesource.base.adapter.ListAdapter
 import com.khoahoang183.basesource.common.extension.bindingUrl
 import com.khoahoang183.basesource.databinding.ItemGithubUserBinding
-import com.khoahoang183.model.features.FileModel
 import com.khoahoang183.model.features.GithubUserModel
 
 class GithubUserAdapter : ListAdapter<GithubUserModel, ItemGithubUserBinding>(
     mInflate = ItemGithubUserBinding::inflate,
-    itemsSame = { old, new -> old.id == new.id },
+    itemsSame = { old, new -> old.id == new.id && old.login == new.login },
     contentsSame = { old, new ->
-        old.login == new.login &&
-                old.node_id == new.node_id
+        old.avatar_url == new.avatar_url &&
+        old.url == new.url &&
+        old.html_url == new.html_url
     }
 ) {
 
@@ -25,7 +25,7 @@ class GithubUserAdapter : ListAdapter<GithubUserModel, ItemGithubUserBinding>(
     ) {
         binding.apply {
             imgAvatar.bindingUrl(model.avatar_url)
-            tvName.text = model.login
+            tvName.text = "${model.id} - ${model.login}"
             tvDescription.text = model.html_url
         }
     }

@@ -30,7 +30,7 @@ class UserRepositoryImpl constructor(
 
     override fun getGithubUserDetail(request: GetGithubUserDetailRequest): Flow<Resource<GithubUserModel?>> {
         return safeNetworkFlow(
-            apiService.getGithubUserDetail(request.userId)
+            apiService.getGithubUserDetail(request.loginUsername)
         )
     }
 }

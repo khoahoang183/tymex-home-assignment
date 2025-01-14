@@ -13,9 +13,6 @@ import com.khoahoang183.basesource.common.extension.bindingUrl
 import com.khoahoang183.basesource.common.extension.safeClick
 import com.khoahoang183.basesource.common.extension.visible
 import com.khoahoang183.basesource.databinding.FragmentDetailUserBinding
-import com.khoahoang183.basesource.databinding.FragmentDummyBinding
-import com.khoahoang183.basesource.features.dummy.DummyViewModel
-import com.khoahoang183.basesource.features.splash.SplashNavigator
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -92,7 +89,7 @@ class DetailGithubUserFragment : HostFragment<FragmentDetailUserBinding>() {
     @SuppressLint("SetTextI18n")
     override fun bindStateFlow(viewState: BaseViewState) {
         when (viewState) {
-            is DetailGithubUserViewModel.ViewState.UserDetailValue ->{
+            is DetailGithubUserViewModel.ViewState.UserDetailValue -> {
                 viewState.payload?.let { model ->
                     binding.apply {
                         tvFollowersValue.text = "${model.followers}+"
@@ -101,6 +98,7 @@ class DetailGithubUserFragment : HostFragment<FragmentDetailUserBinding>() {
                     }
                 }
             }
+
             else -> {
 
             }
