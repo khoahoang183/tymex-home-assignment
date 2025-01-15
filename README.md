@@ -1,14 +1,14 @@
 # Tymex Home Assignment
 
-### 📱 Project Info
+### 📱 <ins>Project Info</ins>
 Active branch: develop
 This android Kotlin project is a home assignment done in 1 week with features to fetch user list data and user details from github API
 
-### 🌟 Features
-🌐 Fetch user list from Github API (with local handle and network handle).
+### 🌟 <ins>Features</ins>
+🌐 Fetch user list from Github API (with local handle and network handle).\
 🎨 Fetch detail user information from Github API.
 
-### 📂 Project Structure
+### 📂 <ins>Project Structure</ins>
 ```
 ├── README.md
 ├── build.gradle.kts
@@ -32,7 +32,7 @@ This android Kotlin project is a home assignment done in 1 week with features to
 └── settings.gradle.kts
 ```
 
-### 🛠️ Tech Stack**
+### 🛠️ <ins>Tech Stack</ins>
 - Programming Language: Kotlin / Java
 - Architecture: MVVM (Model-View-ViewModel) + Clean architecture
 - Core Libraries
