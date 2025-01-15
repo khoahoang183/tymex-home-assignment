@@ -6,9 +6,11 @@ import com.khoahoang183.basesource.base.ui.HostViewModel
 import com.khoahoang183.basesource.common.helper.AppConstants
 import com.khoahoang183.data.base.Event
 import com.khoahoang183.data.base.Resource
+import com.khoahoang183.data.base.orZero
 import com.khoahoang183.data.features.user.network.GetGithubUsersRequest
 import com.khoahoang183.domain.base.ext.toEvent
 import com.khoahoang183.domain.features.user.GetGithubUserCase
+import com.khoahoang183.domain.features.user.GetGithubUserLocalCase
 import com.khoahoang183.model.base.BaseUIModel
 import com.khoahoang183.model.features.GithubUserModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,11 +21,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeTab1ViewModel @Inject constructor(
-    private val getGithubUserCase: GetGithubUserCase
+    private val getGithubUserCase: GetGithubUserCase,
+    private val getGithubUserLocalCase: GetGithubUserLocalCase
 ) : HostViewModel() {
 
     sealed class ViewState : BaseViewState {
@@ -41,7 +45,8 @@ class HomeTab1ViewModel @Inject constructor(
         var listUser: MutableList<GithubUserModel> = mutableListOf()
 
         var isCallingAPI: Boolean = false
-        var isReached: Boolean = false
+        var isReachedAPI: Boolean = false
+        var isReachedLocal: Boolean = false
     }
 
     private val _stateFlow = MutableStateFlow<ViewState>(ViewState.EmptyState)
@@ -57,18 +62,23 @@ class HomeTab1ViewModel @Inject constructor(
 
         launch {
             delay(AppConstants.DELAY_EMIT_DURATION)
-            getGithubUser()
+            getData()
         }
     }
 
-    private fun getGithubUser() {
-        if (dataState.isReached)
-            return
-
-        if (dataState.isCallingAPI)
-            return
-
+    /**
+     * Fetch users data from API
+     */
+    private fun getGithubUserAPI() {
         launch {
+            if (dataState.isReachedAPI)
+                return@launch
+
+            if (dataState.isCallingAPI)
+                return@launch
+
+            delay(1000)
+
             dataState.isCallingAPI = true
             getGithubUserCase.execute(
                 GetGithubUsersRequest(dataState.perPage, dataState.since)
@@ -76,7 +86,8 @@ class HomeTab1ViewModel @Inject constructor(
                 when (resource) {
                     is Resource.Success -> {
                         dataState.isCallingAPI = false
-                        dataState.isReached = resource.data.orEmpty().toMutableList().size < dataState.perPage
+                        dataState.isReachedAPI =
+                            resource.data.orEmpty().toMutableList().size < dataState.perPage
 
                         if (dataState.since == 0)
                             dataState.listUser = resource.data.orEmpty().toMutableList()
@@ -85,9 +96,10 @@ class HomeTab1ViewModel @Inject constructor(
                                 resource.data.orEmpty().toMutableList()
                             )
 
-                        dataState.listUser.last().id?.let {
-                            dataState.since = it
-                        }
+                        if (dataState.listUser.isNotEmpty())
+                            dataState.since = dataState.listUser.last().id.orZero()
+
+                        Timber.d("khoahoang183 test - listUser =  ${dataState.listUser.size}")
                         _stateFlow.emit(ViewState.ListUser(dataState.listUser.toEvent()))
                     }
 
@@ -101,20 +113,67 @@ class HomeTab1ViewModel @Inject constructor(
         }
     }
 
-    fun loadMore() {
-        if (!dataState.isCallingAPI) {
-            getGithubUser()
+    /**
+     * Fetch users data from local device
+     */
+    private fun getGithubUserLocal() {
+        launch {
+            if (dataState.isReachedLocal)
+                return@launch
+
+            getGithubUserLocalCase.execute(
+                GetGithubUsersRequest(dataState.perPage, dataState.since)
+            ).collect { resource ->
+                when (resource) {
+                    is Resource.Success -> {
+                        Timber.d("khoahoang183 test - local size =  ${resource.data.orEmpty().size}")
+                        dataState.isReachedLocal = true
+                            //resource.data.orEmpty().toMutableList().size < dataState.perPage
+
+                        if (dataState.since == 0)
+                            dataState.listUser = resource.data.orEmpty().toMutableList()
+                        else
+                            dataState.listUser.addAll(
+                                resource.data.orEmpty().toMutableList()
+                            )
+
+                        Timber.d("khoahoang183 test - listUser =  ${dataState.listUser.size}")
+
+                        if (dataState.listUser.isNotEmpty()){
+                            dataState.since = dataState.listUser.last().id.orZero()
+                            _stateFlow.emit(ViewState.ListUser(dataState.listUser.toEvent()))
+                        }else{
+                            getGithubUserAPI()
+                        }
+                    }
+
+                    else -> {}
+                }
+            }
         }
     }
 
+    fun getData() {
+        if (!dataState.isReachedLocal) {
+            Timber.d("khoahoang183 test - Load data - local")
+            getGithubUserLocal()
+        } else if (!dataState.isCallingAPI) {
+            Timber.d("khoahoang183 test - Load data - api")
+            getGithubUserAPI()
+        }
+    }
+
+    /**
+     * reinit state and fetch data
+     */
     fun refreshData() {
         dataState.apply {
             since = 0
-            listUser= mutableListOf()
+            listUser = mutableListOf()
             isCallingAPI = false
-            isReached = false
+            isReachedAPI = false
+            isReachedLocal = false
         }
-        getGithubUser()
+        getData()
     }
-
 }

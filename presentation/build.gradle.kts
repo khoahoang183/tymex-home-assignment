@@ -102,6 +102,9 @@ val versionNavigation by extra { "2.7.7" }
 val versionLottie by extra { "3.6.1" }
 val versionOkhttp by extra { "4.10.0" }
 val versionCoil = "2.6.0"
+val versionJUnit = "4.13.2"
+val versionMockito = "5.5.0"
+val versionMockitoKotlin = "4.1.0"
 
 dependencies {
     api(project(":core:domain"))
@@ -143,10 +146,37 @@ dependencies {
     implementation("io.coil-kt:coil:$versionCoil")
     implementation("io.coil-kt:coil-video:$versionCoil")
     implementation("io.coil-kt:coil-gif:$versionCoil")
-    implementation ("com.google.android.flexbox:flexbox:3.0.0")
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
 
     //implementation("com.mapbox.navigation:ui-dropin:2.17.13")
     //implementation("com.mapbox.navigation:android:2.17.13")
     implementation("com.github.mhdmoh:swipe-button:1.0.3")
     implementation("com.github.cachapa:ExpandableLayout:2.9.2")
+
+    // Unit Testing
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito:mockito-core:4.11.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
+
+    // AndroidX Test for instrumented tests
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // Coroutines testing
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
+    // Room testing (if using Room)
+    testImplementation("androidx.room:room-testing:2.5.2")
+
+    // Mockito for mocking dependencies
+    testImplementation("org.mockito:mockito-core:$versionMockito")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:$versionMockitoKotlin")
+    testImplementation ("io.mockk:mockk:1.13.7")
+
+    // Truth library for assertions
+    testImplementation("com.google.truth:truth:1.1.5")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.48")
+    kaptAndroidTest("com.google.dagger:hilt-compiler:2.48")
+
+    testImplementation("com.squareup.retrofit2:retrofit-mock:2.9.0")
 }

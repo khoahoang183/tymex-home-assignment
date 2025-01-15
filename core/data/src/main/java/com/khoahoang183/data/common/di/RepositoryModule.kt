@@ -1,5 +1,6 @@
 package com.khoahoang183.data.common.di
 
+import com.khoahoang183.data.common.dao.UserDao
 import com.khoahoang183.data.features.auth.AppAuthenticator
 import com.khoahoang183.data.features.auth.AuthApiService
 import com.khoahoang183.data.features.auth.repository.AuthRepository
@@ -30,9 +31,10 @@ class RepositoryModule {
     @Provides
     fun provideUserRepository(
         appAuthenticator: AppAuthenticator,
-        apiService: UserApiService
+        apiService: UserApiService,
+        userDao: UserDao
     ): UserRepository {
-        return UserRepositoryImpl(appAuthenticator, apiService)
+        return UserRepositoryImpl(appAuthenticator, apiService, userDao)
     }
 
     @Provides

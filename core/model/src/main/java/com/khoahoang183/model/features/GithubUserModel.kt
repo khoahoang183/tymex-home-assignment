@@ -1,13 +1,16 @@
 package com.khoahoang183.model.features
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 
 @Parcelize
+@Entity(tableName = "GithubUserModel")
 data class GithubUserModel(
     var login: String? = null,
-    var id: Int? = null,
+    @PrimaryKey var id: Int? = null,
     var node_id: String? = null,
     var avatar_url: String? = null,
     var gravatar_id: String? = null,

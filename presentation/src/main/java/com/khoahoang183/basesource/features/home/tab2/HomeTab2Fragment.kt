@@ -27,12 +27,12 @@ class HomeTab2Fragment : HostFragment<FragmentHomeTab1Binding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setAppBarColor(R.color.color_white, R.color.color_main, isLightBar = true)
+        setAppBarColor(R.color.color_main_3, R.color.color_main, isLightBar = true)
     }
 
     override fun onResume() {
         super.onResume()
-        setAppBarColor(R.color.color_white, R.color.color_main, isLightBar = true)
+        setAppBarColor(R.color.color_main_3, R.color.color_main, isLightBar = true)
     }
 
     override fun bindViewModel() {

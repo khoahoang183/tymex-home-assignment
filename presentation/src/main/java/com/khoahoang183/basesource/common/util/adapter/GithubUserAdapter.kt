@@ -25,7 +25,7 @@ class GithubUserAdapter : ListAdapter<GithubUserModel, ItemGithubUserBinding>(
     ) {
         binding.apply {
             imgAvatar.bindingUrl(model.avatar_url)
-            tvName.text = "${model.id} - ${model.login}"
+            tvName.text = model.login
             tvDescription.text = model.html_url
         }
     }

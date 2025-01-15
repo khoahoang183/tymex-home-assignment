@@ -35,6 +35,7 @@ val versionMoshi by extra { "1.14.0" }
 val versionDagger by extra { "2.48.1" }
 val versionOkhttp by extra { "4.10.0" }
 val versionHilt by extra { "1.2.0" }
+val versionRoom by extra { "2.5.1" }
 
 dependencies {
     api(project(":core:model"))
@@ -55,4 +56,10 @@ dependencies {
     kapt("androidx.hilt:hilt-compiler:${versionHilt}")
 
     implementation("com.jakewharton.timber:timber:5.0.1")
+
+    // room
+    //implementation("androidx.room:room-runtime:${versionRoom}")
+    //annotationProcessor ("androidx.room:room-compiler:${versionRoom}")
+    kapt("androidx.room:room-compiler:${versionRoom}")
+    //implementation("androidx.room:room-ktx:${versionRoom}")
 }

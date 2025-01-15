@@ -10,6 +10,7 @@ import android.text.method.PasswordTransformationMethod
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.CheckedTextView
@@ -27,15 +28,10 @@ import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import coil.load
 import coil.transform.CircleCropTransformation
-import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.khoahoang183.basesource.R
-import com.khoahoang183.basesource.common.helper.AppConstants
-import com.khoahoang183.data.base.EnumAccountLevel
-import com.khoahoang183.data.base.EnumDeliveryStatus
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -50,8 +46,18 @@ fun View.gone() {
     visibility = View.GONE
 }
 
+fun View.goneWithAnimation(resId:Int) {
+    startAnimation(AnimationUtils.loadAnimation(context, resId))
+    visibility = View.GONE
+}
+
 fun View.visible() {
     visibility = View.VISIBLE
+}
+
+fun View.visibleWithAnimation(resId:Int) {
+    visibility = View.VISIBLE
+    startAnimation(AnimationUtils.loadAnimation(context, resId))
 }
 
 fun View.invisible() {
@@ -101,24 +107,6 @@ fun TextView.textVisible(text: CharSequence?, type: TextView.BufferType) {
     this.setText(text, type)
     this.visibility = if (text.isNullOrEmpty()) View.GONE else View.VISIBLE
 }
-
-fun TextView.setAccountLevelText(accountLevel: String) {
-    this.text = accountLevel
-    when (accountLevel) {
-        EnumAccountLevel.BASIC.value -> {
-            setTextColorExt(R.color.color_account_basic)
-        }
-
-        EnumAccountLevel.STANDARD.value -> {
-            setTextColorExt(R.color.color_account_standard)
-        }
-
-        EnumAccountLevel.PREMIUM.value -> {
-            setTextColorExt(R.color.color_account_premium)
-        }
-    }
-}
-
 
 fun View.takeVisibleIf(flags: Int) {
     if (this.visibility == flags) {

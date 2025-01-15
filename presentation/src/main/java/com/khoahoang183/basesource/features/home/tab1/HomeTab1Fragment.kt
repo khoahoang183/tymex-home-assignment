@@ -12,7 +12,9 @@ import com.khoahoang183.basesource.base.function.BaseViewState
 import com.khoahoang183.basesource.base.function.InflateAlias
 import com.khoahoang183.basesource.base.ui.fragment.HostFragment
 import com.khoahoang183.basesource.common.extension.dpToPx
+import com.khoahoang183.basesource.common.extension.goneWithAnimation
 import com.khoahoang183.basesource.common.extension.safeCallBack
+import com.khoahoang183.basesource.common.extension.visibleWithAnimation
 import com.khoahoang183.basesource.common.uicustom.VerticalLinearItemDecoration
 import com.khoahoang183.basesource.common.util.adapter.GithubUserAdapter
 import com.khoahoang183.basesource.databinding.FragmentHomeTab1Binding
@@ -94,19 +96,17 @@ class HomeTab1Fragment : HostFragment<FragmentHomeTab1Binding>() {
                     val lastVisibleItem =
                         ((view as RecyclerView).layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
                     Timber.d("lastVisibleItem = $lastVisibleItem")
-                    if (!viewModel.dataState.isReached && !viewModel.dataState.isCallingAPI &&
+                    if (!viewModel.dataState.isReachedAPI && !viewModel.dataState.isCallingAPI &&
                         lastVisibleItem == adapterUsers.itemCount.minus(1)
                     )
                         binding.root.safeCallBack {
-                            //binding.progressBar.visible()
-                            viewModel.loadMore()
+                            binding.llLoadMore.visibleWithAnimation(R.anim.anim_slide_bottom_to_current)
+                            viewModel.getData()
                         }
-                } catch (ex:Exception){
+                } catch (ex: Exception) {
                     Timber.e("${this::class.java} - ${ex.message}")
                 }
-
             }
-
         }
     }
 
@@ -123,6 +123,7 @@ class HomeTab1Fragment : HostFragment<FragmentHomeTab1Binding>() {
 
             is HomeTab1ViewModel.ViewState.ListUser -> {
                 viewState.payload.contentIfNotHandled?.let {
+                    binding.llLoadMore.goneWithAnimation(R.anim.anim_slide_current_to_bottom)
                     adapterUsers.submitList(it)
                 }
             }
