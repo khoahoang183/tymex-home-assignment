@@ -1,8 +1,7 @@
-# tymex-home-assignment
+# Tymex Home Assignment
 
-### 🚀 Active branch: develop
-
-### 📱 Project Name
+### 📱 Project Info
+Active branch: develop
 This android Kotlin project is a home assignment done in 1 week with features to fetch user list data and user details from github API
 
 ### 🌟 Features
